@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Tech Store Cuba</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .welcome-message {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .features {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .social-links {
+            margin: 20px 0;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛒 Tech Store Cuba</h1>
+            <p>¡Bienvenido a la mejor tienda de tecnología!</p>
+        </div>
+        
+        <div class="content">
+            <div class="welcome-message">
+                <h2>¡Hola {{firstName}}!</h2>
+                <p>¡Bienvenido a Tech Store Cuba! Nos alegra que te hayas unido a nuestra comunidad de amantes de la tecnología.</p>
+            </div>
+            
+            <div class="features">
+                <h3>¿Qué puedes hacer ahora?</h3>
+                
+                <div class="feature-item">
+                    <span class="feature-icon">💻</span>
+                    <span>Explora nuestro catálogo de computadoras, laptops y teléfonos</span>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-icon">💳</span>
+                    <span>Paga fácilmente con Transfermóvil o EnZona</span>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-icon">🚚</span>
+                    <span>Disfruta de envío gratis en compras superiores a 1000 CUP</span>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-icon">⭐</span>
+                    <span>Lee reseñas de otros clientes y comparte tu experiencia</span>
+                </div>
+                
+                <div class="feature-item">
+                    <span class="feature-icon">🎁</span>
+                    <span>Accede a ofertas exclusivas y descuentos especiales</span>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="{{loginUrl}}" class="cta-button">Comenzar a Comprar</a>
+            </div>
+            
+            <p>Si tienes alguna pregunta, no dudes en contactarnos. Nuestro equipo de soporte está aquí para ayudarte.</p>
+            
+            <p>¡Gracias por confiar en nosotros!</p>
+            <p><strong>El equipo de Tech Store Cuba</strong></p>
+        </div>
+        
+        <div class="footer">
+            <div class="social-links">
+                <a href="#" style="color: #1976d2;">📘 Facebook</a>
+                <a href="#" style="color: #1976d2;">📷 Instagram</a>
+                <a href="#" style="color: #1976d2;">💬 WhatsApp</a>
+            </div>
+            <p>Tech Store Cuba - Tecnología al alcance de todos</p>
+            <p>La Habana, Cuba | soporte@techstorecuba.com</p>
+            <p style="font-size: 12px; color: #999;">
+                Has recibido este email porque te registraste en Tech Store Cuba.
+                Si no deseas recibir más emails, puedes 
+                <a href="#" style="color: #666;">darte de baja aquí</a>.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

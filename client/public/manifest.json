@@ -1,0 +1,170 @@
+{
+  "short_name": "Tech Store",
+  "name": "Tech Store Cuba - Tecnología al alcance de todos",
+  "description": "La mejor tienda online de tecnología en Cuba. Computadoras, laptops, teléfonos y accesorios con pagos en CUP.",
+  "icons": [
+    {
+      "src": "icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1976d2",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "es-CU",
+  "dir": "ltr",
+  "categories": ["shopping", "technology", "business"],
+  "shortcuts": [
+    {
+      "name": "Productos",
+      "short_name": "Productos",
+      "description": "Ver todos los productos disponibles",
+      "url": "/products",
+      "icons": [
+        {
+          "src": "icons/shortcut-products.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Mi Carrito",
+      "short_name": "Carrito",
+      "description": "Ver productos en el carrito",
+      "url": "/cart",
+      "icons": [
+        {
+          "src": "icons/shortcut-cart.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Mis Pedidos",
+      "short_name": "Pedidos",
+      "description": "Ver el estado de mis pedidos",
+      "url": "/orders",
+      "icons": [
+        {
+          "src": "icons/shortcut-orders.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Ofertas",
+      "short_name": "Ofertas",
+      "description": "Ver productos en oferta",
+      "url": "/products?featured=true",
+      "icons": [
+        {
+          "src": "icons/shortcut-offers.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/desktop-home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Página principal en desktop"
+    },
+    {
+      "src": "screenshots/mobile-products.png",
+      "sizes": "375x812",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Catálogo de productos en móvil"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://techstorecuba.com/manifest.json"
+    }
+  ],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "handle_links": "preferred",
+  "protocol_handlers": [
+    {
+      "protocol": "web+techstore",
+      "url": "/handle?type=%s"
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "images",
+          "accept": ["image/*"]
+        }
+      ]
+    }
+  }
+}

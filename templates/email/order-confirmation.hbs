@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Pedido</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .order-number {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .content {
+            padding: 30px;
+        }
+        .order-details {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .item-row:last-child {
+            border-bottom: none;
+        }
+        .item-info {
+            flex: 1;
+        }
+        .item-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .item-specs {
+            font-size: 14px;
+            color: #666;
+        }
+        .item-price {
+            font-weight: bold;
+            color: #1976d2;
+        }
+        .total-section {
+            background-color: #e3f2fd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        .total-final {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1976d2;
+            border-top: 2px solid #1976d2;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        .shipping-info {
+            background-color: #fff3e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .status-badge {
+            display: inline-block;
+            background-color: #4caf50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✅ Pedido Confirmado</h1>
+            <div class="order-number">#{{orderNumber}}</div>
+            <p>Tu pedido ha sido recibido y está siendo procesado</p>
+        </div>
+        
+        <div class="content">
+            <h2>¡Hola {{firstName}}!</h2>
+            <p>Gracias por tu compra. Hemos recibido tu pedido y lo estamos preparando para el envío.</p>
+            
+            <div class="order-details">
+                <h3>Detalles del Pedido</h3>
+                {{#each items}}
+                <div class="item-row">
+                    <div class="item-info">
+                        <div class="item-name">{{product.name.es}}</div>
+                        <div class="item-specs">
+                            Cantidad: {{quantity}}
+                            {{#if specifications.color}}| Color: {{specifications.color}}{{/if}}
+                            {{#if specifications.storage}}| Almacenamiento: {{specifications.storage}}{{/if}}
+                        </div>
+                    </div>
+                    <div class="item-price">${{price}} CUP</div>
+                </div>
+                {{/each}}
+            </div>
+            
+            <div class="total-section">
+                <div class="total-row">
+                    <span>Subtotal:</span>
+                    <span>${{subtotal}} CUP</span>
+                </div>
+                <div class="total-row">
+                    <span>Envío:</span>
+                    <span>${{shipping}} CUP</span>
+                </div>
+                <div class="total-row">
+                    <span>Impuestos:</span>
+                    <span>${{tax}} CUP</span>
+                </div>
+                <div class="total-row total-final">
+                    <span>Total:</span>
+                    <span>${{total}} CUP</span>
+                </div>
+            </div>
+            
+            <div class="shipping-info">
+                <h3>📦 Información de Envío</h3>
+                <p><strong>{{shippingAddress.firstName}} {{shippingAddress.lastName}}</strong></p>
+                <p>{{shippingAddress.street}}</p>
+                <p>{{shippingAddress.city}}, {{shippingAddress.province}}</p>
+                {{#if shippingAddress.zipCode}}<p>CP: {{shippingAddress.zipCode}}</p>{{/if}}
+                <p>📞 {{shippingAddress.phone}}</p>
+            </div>
+            
+            <div style="text-align: center;">
+                <span class="status-badge">CONFIRMADO</span>
+                <br><br>
+                <a href="{{trackingUrl}}" class="cta-button">Seguir mi Pedido</a>
+            </div>
+            
+            <div style="background-color: #e8f5e8; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                <h4 style="color: #2e7d32; margin-top: 0;">📋 Próximos Pasos:</h4>
+                <ul style="color: #2e7d32; margin: 0;">
+                    <li>Procesaremos tu pedido en las próximas 24 horas</li>
+                    <li>Te enviaremos una confirmación cuando sea enviado</li>
+                    <li>Recibirás un número de seguimiento para rastrear tu envío</li>
+                    <li>El tiempo estimado de entrega es de 2-5 días hábiles</li>
+                </ul>
+            </div>
+            
+            <p><strong>¿Necesitas ayuda?</strong><br>
+            Contáctanos por WhatsApp: +53 5555-5555<br>
+            Email: soporte@techstorecuba.com</p>
+            
+            <p>¡Gracias por elegir Tech Store Cuba!</p>
+            <p><strong>El equipo de Tech Store Cuba</strong></p>
+        </div>
+        
+        <div class="footer">
+            <p>Tech Store Cuba - Tecnología al alcance de todos</p>
+            <p>La Habana, Cuba | soporte@techstorecuba.com</p>
+        </div>
+    </div>
+</body>
+</html>
