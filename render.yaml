@@ -1,0 +1,45 @@
+services:
+  # Web Service (Backend + Frontend)
+  - type: web
+    name: tech-store-cuba
+    env: node
+    plan: starter
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        fromDatabase:
+          name: tech-store-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRE
+        value: 30d
+      - key: EMAIL_HOST
+        value: smtp.gmail.com
+      - key: EMAIL_PORT
+        value: 587
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: VAPID_PUBLIC_KEY
+        value: BEl62iUYgUivxIkv69yViEuiBIa40HI8j2wcOFgU6-4dDRDjfAEez2lILgKMWWoHVgJhXVfgBGAEbWfKwqsuYaQ
+      - key: VAPID_PRIVATE_KEY
+        sync: false
+      - key: FRONTEND_URL
+        value: https://tech-store-cuba.onrender.com
+    disk:
+      name: tech-store-disk
+      mountPath: /opt/render/project/src/uploads
+      sizeGB: 1
+
+  # MongoDB Database
+databases:
+  - name: tech-store-db
+    plan: starter
