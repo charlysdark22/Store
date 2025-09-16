@@ -17,24 +17,17 @@ interface Category {
 
 interface ProductFiltersProps {
   categories: Category[]
-  searchParams: {
-    category?: string
-    search?: string
-    minPrice?: string
-    maxPrice?: string
-    brand?: string
-  }
 }
 
-export function ProductFilters({ categories, searchParams }: ProductFiltersProps) {
+export function ProductFilters({ categories }: ProductFiltersProps) {
   const router = useRouter()
-  const urlSearchParams = useSearchParams()
+  const searchParams = useSearchParams()
 
-  const [search, setSearch] = useState(searchParams.search || "")
-  const [minPrice, setMinPrice] = useState(searchParams.minPrice || "")
-  const [maxPrice, setMaxPrice] = useState(searchParams.maxPrice || "")
-  const [selectedCategory, setSelectedCategory] = useState(searchParams.category || "")
-  const [brand, setBrand] = useState(searchParams.brand || "")
+  const [search, setSearch] = useState(searchParams.get("search") || "")
+  const [minPrice, setMinPrice] = useState(searchParams.get("minPrice") || "")
+  const [maxPrice, setMaxPrice] = useState(searchParams.get("maxPrice") || "")
+  const [selectedCategory, setSelectedCategory] = useState(searchParams.get("category") || "")
+  const [brand, setBrand] = useState(searchParams.get("brand") || "")
 
   const updateFilters = () => {
     const params = new URLSearchParams()

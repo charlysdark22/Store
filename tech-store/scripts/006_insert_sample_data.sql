@@ -8,33 +8,23 @@ insert into public.categories (name, name_en, description, description_en) value
 ('Accesorios Teléfono', 'Phone Accessories', 'Accesorios para teléfonos móviles', 'Accessories for mobile phones');
 
 -- Insertar productos de ejemplo
-insert into public.products (name, name_en, description, description_en, price, category_id, brand, model, specifications, specifications_en, stock_quantity) 
-select 
-  'PC Gamer Intel i5', 'Gaming PC Intel i5', 
-  'Computadora de escritorio para gaming con procesador Intel i5', 'Desktop computer for gaming with Intel i5 processor',
-  850.00, c.id, 'Custom Build', 'Gaming i5',
-  '{"processor": "Intel i5-12400F", "ram": "16GB DDR4", "storage": "500GB SSD", "gpu": "GTX 1660 Super"}'::jsonb,
-  '{"processor": "Intel i5-12400F", "ram": "16GB DDR4", "storage": "500GB SSD", "gpu": "GTX 1660 Super"}'::jsonb,
-  5
-from public.categories c where c.name = 'Computadoras de Escritorio';
+insert into public.products (name, name_en, description, description_en, price, category_id, stock_quantity)
+select
+  'Cajita Externa para HDD/SSD 2.5"', 'External Case for 2.5" HDD/SSD',
+  'Convierte tu disco en portátil', 'Turn your disk into a portable one',
+  5000, c.id, 10
+from public.categories c where c.name = 'Accesorios PC';
+
+insert into public.products (name, name_en, description, description_en, price, category_id, stock_quantity)
+select
+  'SSD 128GB para Laptop', '128GB SSD for Laptop',
+  '¡Acelera tu computadora al instante!', 'Speed up your computer instantly!',
+  6500, c.id, 10
+from public.categories c where c.name = 'Accesorios PC';
 
 insert into public.products (name, name_en, description, description_en, price, category_id, brand, model, stock_quantity)
-select 
-  'Laptop Dell Inspiron 15', 'Dell Inspiron 15 Laptop',
-  'Laptop Dell para uso diario y trabajo', 'Dell laptop for daily use and work',
-  650.00, c.id, 'Dell', 'Inspiron 15', 8
-from public.categories c where c.name = 'Laptops';
-
-insert into public.products (name, name_en, description, description_en, price, category_id, brand, model, stock_quantity)
-select 
-  'iPhone 14', 'iPhone 14',
-  'Smartphone Apple iPhone 14', 'Apple iPhone 14 smartphone',
-  1200.00, c.id, 'Apple', 'iPhone 14', 3
-from public.categories c where c.name = 'Teléfonos';
-
-insert into public.products (name, name_en, description, description_en, price, category_id, brand, model, stock_quantity)
-select 
-  'Teclado Mecánico RGB', 'RGB Mechanical Keyboard',
-  'Teclado mecánico con iluminación RGB', 'Mechanical keyboard with RGB lighting',
-  85.00, c.id, 'Corsair', 'K70 RGB', 15
+select
+  'Cable Conversor TP-Link 5V a 9V', 'TP-Link 5V to 9V Converter Cable',
+  'Ideal para routers y dispositivos', 'Ideal for routers and devices',
+  2500, c.id, 'TP-Link', '5V to 9V', 10
 from public.categories c where c.name = 'Accesorios PC';
